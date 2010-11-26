@@ -1,5 +1,7 @@
+.bashrc
 .gitconfig
 .hgrc
+.profile
 .ssh
 .vim
 .vimrc
