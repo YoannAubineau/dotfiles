@@ -1,4 +1,5 @@
 .gitconfig
+.hgrc
+.ssh
 .vim
 .vimrc
-.ssh

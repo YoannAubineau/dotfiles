@@ -1,0 +1,23 @@
+[ui]
+username = Yoann Aubineau <yoann.aubineau@meilleursagents.com>
+editor = vim
+
+[extensions]
+hgext.bookmarks =
+hggit = 
+color =
+pager =
+extdiff =
+
+[pager]
+pager = less -R
+
+[diff]
+showfunc = True
+
+[patch]
+eol = lf
+
+[extdiff]
+cmd.vimdiff = vimdiff
+
