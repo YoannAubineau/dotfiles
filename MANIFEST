@@ -3,7 +3,7 @@
 .gitconfig
 .hgrc
 .profile
-.screen
+.screenrc
 .ssh
 .vim
 .vimrc
