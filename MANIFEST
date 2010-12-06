@@ -2,6 +2,7 @@
 .bashrc
 .gitconfig
 .hgrc
+.htoprc
 .profile
 .screenrc
 .ssh
