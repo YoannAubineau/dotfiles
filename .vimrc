@@ -1,3 +1,9 @@
+" Get rid of original Vi compatibility
+set nocompatible
+
+" Bash-style file completion
+set wildmode=longest,list
+
 " Enable syntax highlighting
 syntax on
 
@@ -12,6 +18,12 @@ set nu
 
 " Highlight search
 set hlsearch
+
+" Do incremental search
+set incsearch
+
+" Force 3 lines of context above or below the cursor
+set scrolloff=1
 
 " Underline current line in active window
 autocmd WinEnter * setlocal cursorline
