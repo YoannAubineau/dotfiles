@@ -79,9 +79,10 @@ fi
 
 # some more ls aliases
 alias l='ls -CF'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias la='ls -A'
-alias lla='ls -lA'
+alias lla='ls -lhA'
+alias sl='ls'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -98,3 +99,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+export PGHOST="localhost"
+export PGUSER="meilleursagents_dev"
