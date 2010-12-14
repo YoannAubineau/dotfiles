@@ -1,0 +1,5 @@
+# Additional bash configuration for host bunker
+
+export PGHOST="localhost"
+export PGUSER="meilleursagents"
+

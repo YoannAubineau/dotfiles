@@ -76,6 +76,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# Host-specific configuration
+if [ -f ~/.config/.bashrc_$(hostname) ]; then
+    . ~/.config/.bashrc_$(hostname)
+fi
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -92,5 +97,3 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PGHOST="localhost"
-export PGUSER="meilleursagents_dev"
