@@ -15,8 +15,8 @@ def main():
         if os.path.islink(source):
             os.unlink(source)
         if os.path.exists(source):
-            os.rename(source, '.'.join([source, timestamp]))
-        print source + ' -> ' + target
+            os.rename(source, '%s.%s' % (source, timestamp))
+        print '%s -> %s' % (source, target)
         os.symlink(target, source)
 
 
