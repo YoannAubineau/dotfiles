@@ -8,3 +8,5 @@ alias sl='ls'
 
 alias lns='ln -s'
 
+alias susu='sudo su -'
+
