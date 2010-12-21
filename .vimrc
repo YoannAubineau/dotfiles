@@ -16,6 +16,9 @@ set autoindent
 " Enable line numbers
 set nu
 
+" Enable ruler
+set ruler
+
 " Highlight search
 set hlsearch
 
