@@ -4,6 +4,7 @@
 .hgrc
 .htoprc
 .profile
+.psqlrc
 .screenrc
 .ssh
 .vim
