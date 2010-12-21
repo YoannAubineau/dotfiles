@@ -7,6 +7,9 @@ set wildmode=longest,list
 " Enable syntax highlighting
 syntax on
 
+" Make Vim use lighter colors on dark background
+set background=dark
+
 " Automatically indent based on file type
 filetype indent on
 
