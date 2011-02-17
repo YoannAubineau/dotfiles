@@ -22,6 +22,9 @@ set nu
 " Enable ruler
 set ruler
 
+" Always show status bar
+set laststatus=2
+
 " Highlight search
 set hlsearch
 
