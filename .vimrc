@@ -41,6 +41,9 @@ autocmd WinLeave * setlocal nocursorline
 " Enable mouse use
 set mouse=a
 
+" Do no wrap long lines
+set nowrap
+
 " Import Python-specific configuration
 source ~/.vim/vimrc_python
 
