@@ -28,7 +28,7 @@ set hlsearch
 " Do incremental search
 set incsearch
 
-" Force 3 lines of context above or below the cursor
+" Force 1 line of context above or below the cursor
 set scrolloff=1
 
 " Underline current line in active window
