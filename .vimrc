@@ -44,6 +44,9 @@ set mouse=a
 " Do no wrap long lines
 set nowrap
 
+" Remove trailing spaces when saving files
+autocmd BufWritePre *.* :%s/\s\+$//e
+
 " Import Python-specific configuration
 source ~/.vim/vimrc_python
 
