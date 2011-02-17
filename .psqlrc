@@ -1,5 +1,2 @@
--- PostgreSQL Interactive Terminal custom configuration file 
-
--- toggle timing of commands
-\timing
+-- PostgreSQL Interactive Terminal custom configuration file
 
