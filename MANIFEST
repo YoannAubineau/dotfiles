@@ -5,6 +5,7 @@
 .htoprc
 .profile
 .psqlrc
+.pypirc
 .screenrc
 .ssh
 .vim
