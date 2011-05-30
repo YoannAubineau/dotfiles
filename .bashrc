@@ -98,7 +98,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # load virtualenvwrapper
-if [ -f /usr/bin/virtualenvwrapper.sh ]; then
-    . /usr/bin/virtualenvwrapper.sh
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    . /usr/local/bin/virtualenvwrapper.sh
 fi
 
