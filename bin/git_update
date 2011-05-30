@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+LINE='------------------------------'
+
+PATHS=$*
+if [ $# -eq 0 ]
+then
+	PATHS=.
+fi
+
+for path in $PATHS
+do
+	# ignore non-directories
+	if [ ! -d $path ]
+	then
+		echo "not a repository: $path" >> /dev/stderr
+		continue
+	fi
+
+	# trace a line between repositories
+	if [ $# -gt 1 ]
+	then
+		echo  "$LINE $path"
+	fi
+
+	cd $path
+	set -o verbose
+	git remote update
+	git remote prune origin
+	git branch -a
+	git status
+	git stash list
+	cd -
+done
+

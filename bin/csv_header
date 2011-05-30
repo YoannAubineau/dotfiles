@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+head -n1 $1 | sed -e 's/;/\n/g' | nl

@@ -1,0 +1,46 @@
+#!/bin/bash
+
+#find . \( -name "*.php" -o -name "*.inc" -o -name "*.js" -o -name "*.css" \) | grep -v '/www/cms/' | xargs -n 100 -P 0 grep -E $2 "$1"
+
+#BASEDIR=.;
+#ARGS=$@;
+#LASTARG=${!#};
+#if [ -e $LASTTARG ];
+#then
+#	BASEDIR=$LASTARG;
+#	ARGS=${@:1:$(($#-1))};
+#fi
+#find $BASEDIR -regex '.*\.\(php\|inc\|js\|css\)' -and -not -path '*www/cms/*' -print0 | xargs -0 grep --color=always -n $ARGS;
+
+
+#function getargs() {
+#	for arg in $@;
+#	do
+#		if [ -e $arg ];
+#		then
+#			return $@
+#		fi
+#	done
+#	args=$@;
+#	echo $args;
+#	$args+=('.');
+#	echo $args;
+##	return $args;
+#}
+##echo $args;
+#getargs $@;
+
+grep \
+	--recursive \
+	--exclude-dir='www/cms' \
+	--include='*.php' \
+	--include='*.inc' \
+	--include='*.js' \
+	--include='*.css' \
+	--include='*.py' \
+	--with-filename \
+	--line-number \
+	--color=always \
+	--mmap \
+	"$1" ${@:2}; 
+

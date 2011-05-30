@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+watch -n1 "lsof -p $1  | grep -v mem"
