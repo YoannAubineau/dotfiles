@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+DIRECTORY=$(pwd)
+if [ -d $1 ]
+then
+	DIRECTORY=$1
+	shift
+fi
+
+HOSTNAME=$1
+shift
+
+
+rsync -Padvz $DIRECTORY/ $HOSTNAME:$DIRECTORY/ $* 
+
