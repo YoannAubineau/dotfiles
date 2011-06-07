@@ -10,3 +10,5 @@ alias lns='ln -s'
 
 alias susu='sudo su -'
 
+alias nl='nl -ba'
+
