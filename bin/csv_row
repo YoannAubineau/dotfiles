@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [ -e $1 ]
+then
+	FILEPATH=$1;
+	shift;
+fi
+
+ROW_INDEXES=$(echo $@);
+
+for ROW_INDEX in $ROW_INDEXES
+do
+	head -n$ROW_INDEX $FILEPATH | tail -n1
+	head -n$ROW_INDEX $FILEPATH | tail -n1 | sed -e 's/;/\n/g' | nl -ba;
+done
+
