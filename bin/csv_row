@@ -1,16 +1,32 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python
 
-if [ -e $1 ]
-then
-	FILEPATH=$1;
-	shift;
-fi
+import csv
+import os
+import sys
 
-ROW_INDEXES=$(echo $@);
+fd = sys.stdin
+if os.path.isfile(sys.argv[1]):
+    filepath = sys.argv.pop(1)
+    fd = open(filepath)
 
-for ROW_INDEX in $ROW_INDEXES
-do
-	head -n$ROW_INDEX $FILEPATH | tail -n1
-	head -n$ROW_INDEX $FILEPATH | tail -n1 | sed -e 's/;/\n/g' | nl -ba;
-done
+row_indexes = [0] + [int(index) for index in sys.argv[1:]]
+
+def read_rows(fd, row_indexes):
+    rows = csv.reader(fd, delimiter=';')
+    for i, row in enumerate(rows):
+        if i not in row_indexes:
+            continue
+        yield row
+
+rows = list(read_rows(fd, row_indexes))
+rows_t = zip(*rows)
+
+ndigits = len(str(len(rows[0])))
+widths = [max(len(value) for value in row) for row in rows]
+
+for i, row in enumerate(rows_t):
+    linenum = ('%%%dd ' % ndigits) % i
+    line = linenum + ' '.join(('%%-%ds' % width) % value
+        for value, width in zip(row, widths))
+    print line
 
