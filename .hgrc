@@ -4,7 +4,7 @@ editor = vim
 
 [extensions]
 hgext.bookmarks =
-hggit = 
+hggit =
 color =
 pager =
 extdiff =
@@ -20,4 +20,7 @@ eol = lf
 
 [extdiff]
 cmd.vimdiff = vimdiff
+
+[git]
+intree=1
 
