@@ -107,6 +107,3 @@ fi
 
 workon py27
 
-# attach or create tmux session except when already in a tmux session
-[ ${#TMUX} ] && ( tmux attach || tmux new )
-
