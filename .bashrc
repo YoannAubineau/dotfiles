@@ -97,13 +97,27 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# load virtualenvwrapper
-if [ -f /usr/bin/virtualenvwrapper.sh ]; then
-    . /usr/bin/virtualenvwrapper.sh
-fi
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    . /usr/local/bin/virtualenvwrapper.sh
+# Load virtualenvwrapper
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]
+then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+    source /usr/local/bin/virtualenvwrapper.sh
+
+    # make mkvirtualenv function work with multiple versions of Python
+    xmkvirtualenv () {
+        VERSION=$1; shift
+        PYTHON="/opt/python-$VERSION/bin/python${VERSION::3}"
+	OLD_VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENVWRAPPER_VIRTUALENV
+	OLD_VIRTUALENVWRAPPER_VIRTUALENV_ARGS=$VIRTUALENVWRAPPER_VIRTUALENV_ARGS
+        export VIRTUALENVWRAPPER_VIRTUALENV="/opt/python-$VERSION/bin/virtualenv"
+	export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--python=$PYTHON $OLD_VIRTUALENVWRAPPER_ARGS"
+	mkvirtualenv $@
+	export VIRTUALENVWRAPPER_VIRTUALENV=$OLD_VIRTUALENVWRAPPER_VIRTUALENV
+	export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=$OLD_VIRTUALENVWRAPPER_VIRTUALENV_ARGS
+    }
+
+    workon py27
 fi
 
-workon py27
 
