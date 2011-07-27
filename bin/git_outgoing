@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+BRANCH_NAME=$(basename $(git symbolic-ref HEAD))
+git log -p --reverse origin/$BRANCH_NAME..$BRANCH_NAME
+
