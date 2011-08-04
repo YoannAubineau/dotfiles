@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # Install cPython interpreter from source
+# usage: install_python.sh <version>
 
 set -e
 set -x
 
 VERSION=$1
+
 
 # Get Python sources
 
