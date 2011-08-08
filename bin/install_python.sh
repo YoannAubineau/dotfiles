@@ -46,3 +46,9 @@ sudo $PYTHON get-pip.py
 
 sudo /opt/python-$VERSION/bin/pip install virtualenv
 
+
+# Install system-wide virtualenvwrapper
+
+sudo apt-get install python-setuptools
+easy_install wirtualenvwrapper
+
