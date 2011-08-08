@@ -13,7 +13,7 @@ then
     WORKON_HOME=~/.virtualenvs
 fi
 
-mkdir $WORKON_HOME
+mkdir -p $WORKON_HOME
 
 
 # Create new virtualenv with specified name and Python version
