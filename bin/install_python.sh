@@ -8,6 +8,11 @@ set -x
 VERSION=$1
 
 
+# Install prerequisite libraries
+
+sudo apt-get install libreadline6-dev zlib1g-dev libbz2-dev
+
+
 # Get Python sources
 
 wget http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.bz2
