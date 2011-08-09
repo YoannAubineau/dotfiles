@@ -10,7 +10,7 @@ VERSION=$1
 
 # Install prerequisite libraries
 
-sudo apt-get install libreadline6-dev zlib1g-dev libbz2-dev
+sudo apt-get install libreadline6-dev libsqlite3-dev libxslt1-dev libxml2-dev zlib1g-dev libbz2-dev
 
 
 # Get Python sources
