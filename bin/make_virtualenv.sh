@@ -26,3 +26,10 @@ VIRTUALENV_NAME=$2
 
 $VIRTUALENV --python=$PYTHON --no-site-packages $WORKON_HOME/$VIRTUALENV_NAME
 
+
+# Install virtualenvwrapper for this virtualenv so that it doesn't break using tmux
+
+source $WORKON_HOME/$VIRTUALENV_NAME/bin/activate
+pip install virtualenvwrapper
+deactivate
+
