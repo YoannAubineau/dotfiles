@@ -8,6 +8,11 @@ set -x
 VERSION=$1
 
 
+# Install prerequisite libraries
+
+sudo apt-get install libreadline6-dev libsqlite3-dev libxslt1-dev libxml2-dev zlib1g-dev libbz2-dev
+
+
 # Get Python sources
 
 wget http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.bz2
@@ -27,17 +32,23 @@ PYTHON=/opt/python-$VERSION/bin/python${VERSION::3}
 
 # Bootstrap distribute package (required by pip)
 
-wget --no-check-certificate http://python-distribute.org/distribute_setup.py
+wget --no-check-certificate --no-clobber http://python-distribute.org/distribute_setup.py
 sudo $PYTHON distribute_setup.py
 
 
 # Install pip package installer
 
-wget --no-check-certificate https://github.com/pypa/pip/raw/master/contrib/get-pip.py
+wget --no-check-certificate --no-clobber https://github.com/pypa/pip/raw/master/contrib/get-pip.py
 sudo $PYTHON get-pip.py
 
 
 # Install virtualenv
 
 sudo /opt/python-$VERSION/bin/pip install virtualenv
+
+
+# Install system-wide virtualenvwrapper
+
+sudo apt-get install python-setuptools
+easy_install wirtualenvwrapper
 
