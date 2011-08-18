@@ -10,7 +10,8 @@ VERSION=$1
 
 # Install prerequisite libraries
 
-sudo apt-get install libreadline6-dev libsqlite3-dev libxslt1-dev libxml2-dev zlib1g-dev libbz2-dev
+DEPENDENCIES="libreadline6-dev libsqlite3-dev libxslt1-dev libxml2-dev zlib1g-dev libbz2-dev"
+command -v apt-get && sudo apt-get install $DEPENDENCIES
 
 
 # Get Python sources
@@ -58,6 +59,6 @@ sudo /opt/python-$VERSION/bin/pip install virtualenv
 
 # Install system-wide virtualenvwrapper
 
-sudo apt-get install python-setuptools
-sudo easy_install virtualenvwrapper
+command -v apt-get && sudo apt-get install python-setuptools
+sudo easy_install --upgrade virtualenvwrapper
 
