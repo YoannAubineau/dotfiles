@@ -1,5 +1,6 @@
 .bash_logout
 .bashrc
+.forward
 .gitconfig
 .hgrc
 .htoprc
