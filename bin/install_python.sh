@@ -10,19 +10,29 @@ VERSION=$1
 
 # Install prerequisite libraries
 
-sudo apt-get install libreadline6-dev libsqlite3-dev libxslt1-dev libxml2-dev zlib1g-dev libbz2-dev
+DEPENDENCIES="libreadline6-dev libsqlite3-dev libxslt1-dev libxml2-dev zlib1g-dev libbz2-dev"
+command -v apt-get && sudo apt-get install $DEPENDENCIES
 
 
 # Get Python sources
 
-wget http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.bz2
-#echo 'aa27bc25725137ba155910bd8e5ddc4f  Python-$VERSION.tar.bz2' | md5sum --check -
-tar xvjf Python-$VERSION.tar.bz2
+FILENAME=Python-$VERSION.tar.bz2
+if [ ! -f $FILENAME ]
+then
+    wget http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.bz2
+    #echo 'aa27bc25725137ba155910bd8e5ddc4f  Python-$VERSION.tar.bz2' | md5sum --check -
+fi
+
+DIRNAME=Python-$VERSION
+if [ ! -d $DIRNAME ]
+then
+    tar xvjf Python-$VERSION.tar.bz2
+fi
 
 
 # Compile and install Python interpreter
 
-cd Python-$VERSION/
+cd $DIRNAME
 ./configure --prefix=/opt/python-$VERSION/
 sudo make install
 cd ..
@@ -49,6 +59,6 @@ sudo /opt/python-$VERSION/bin/pip install virtualenv
 
 # Install system-wide virtualenvwrapper
 
-sudo apt-get install python-setuptools
-sudo easy_install virtualenvwrapper
+command -v apt-get && sudo apt-get install python-setuptools
+sudo easy_install --upgrade virtualenvwrapper
 
