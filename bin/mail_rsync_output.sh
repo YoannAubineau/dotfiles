@@ -9,7 +9,8 @@
 # eg. rsync [...] | mail_rsync_output.sh -s <subject> <email>
 
 
-ATTACHMENT=$(mktemp)
+TMPDIR=$(mktemp -d)
+ATTACHMENT=$TMPDIR/rsync.$(date +%Y%M%d_%H%M%S).txt
 
 while read LINE
 do
@@ -19,4 +20,4 @@ done
 PATTERN='/^$/H;x;/\n/{:a;n;p;ba;}'  # drop lines until first blank line
 
 cat $ATTACHMENT | sed -n $PATTERN | mail -a $ATTACHMENT $@
-rm $ATTACHMENT
+rm -rf $TMPDIR
