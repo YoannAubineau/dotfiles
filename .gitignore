@@ -1,1 +1,2 @@
-known_hosts
+.ssh/known_hosts
+.vim/.netrwhist
