@@ -8,6 +8,10 @@ set -x
 VERSION=$1
 
 
+mkdir -p /usr/src/python-$VERSION
+cd /usr/src/python-$VERSION
+
+
 # Install prerequisite libraries
 
 DEPENDENCIES="libreadline6-dev libsqlite3-dev libxslt1-dev libxml2-dev zlib1g-dev libbz2-dev"
