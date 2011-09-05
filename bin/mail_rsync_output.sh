@@ -30,7 +30,10 @@ if [ $FILESIZE -gt $MAX_FILESIZE ]
 then
     ATTACHMENT=$BODY.zip
     zip --quiet $ATTACHMENT $BODY
+    FILESIZE=$(stat --format='%s' $ATTACHMENT)
 fi
+
+echo -e "\nattachment filesize: $FILESIZE bytes" >> $BODY
 
 PATTERN='/^$/H;x;/\n/{:a;n;p;ba;}'  # drop lines until first blank line
 sed --quiet $PATTERN $BODY | mail -r "$SENDER" -a "$ATTACHMENT" $@
