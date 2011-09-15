@@ -12,3 +12,6 @@ alias susu='sudo su -'
 
 alias nl='nl -ba'
 
+alias grep='grep -n --color=always'
+alias less='less -R'
+
