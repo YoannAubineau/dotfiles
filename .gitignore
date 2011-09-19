@@ -1,4 +1,26 @@
 .ssh/known_hosts
+.ssh/id*
 .ssh/yoann.aubineau.20110822.key*
 .vim/.netrwhist
 .pypirc
+
+# Emacs
+*~
+
+# Vim
+.*.swp
+.*.swo
+.*.swp
+
+# Git
+*.orig
+*.rej
+
+# Python
+*.pyc
+
+# distutil
+MANIFEST
+dist/*
+build/*
+*.egg-info
