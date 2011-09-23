@@ -77,8 +77,8 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Host-specific configuration
-if [ -f ~/.config/.bash/bashrc_$(hostname) ]; then
-    . ~/.config/.bash/bashrc_$(hostname)
+if [ -f ~/.bash/bashrc_$(hostname) ]; then
+    . ~/.bash/bashrc_$(hostname)
 fi
 
 # Alias definitions.
@@ -86,8 +86,8 @@ fi
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.config/.bash/bash_aliases ]; then
-    . ~/.config/.bash/bash_aliases
+if [ -f ~/.bash/bash_aliases ]; then
+    . ~/.bash/bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
