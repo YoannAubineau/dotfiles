@@ -50,3 +50,6 @@ autocmd BufWritePre *.* :%s/\s\+$//e
 " Import Python-specific configuration
 source ~/.vim/vimrc_python
 
+" Import MA-specific configuration
+source ~/.vim/vimrc_ma
+
