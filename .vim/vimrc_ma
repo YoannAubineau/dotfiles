@@ -1,0 +1,4 @@
+au BufRead,BufNewFile *.php,*.inc set shiftwidth=4
+au BufRead,BufNewFile *.php,*.inc set expandtab
+au BufRead,BufNewFile *.php,*.inc set softtabstop=4
+
