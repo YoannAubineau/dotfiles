@@ -3,6 +3,7 @@
 .ssh/yoann.aubineau.20110822.key*
 .vim/.netrwhist
 .pypirc
+.htoprc
 
 # Emacs
 *~
