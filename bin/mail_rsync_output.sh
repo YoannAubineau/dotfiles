@@ -5,7 +5,7 @@
 # The message body only contains the stat report, while the whole rsync output
 # is packed into a single zipped text file attached to the mail.
 #
-# The subject of the mail is maid from the second line of rsync output which is
+# The subject of the mail is made from the second line of rsync output which is
 # the root directory. The sender address is "Backup $HOSTNAME <noreply>". These
 # values can be overritten with command line arguments.
 #
