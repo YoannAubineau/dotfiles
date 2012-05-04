@@ -29,7 +29,7 @@ FILESIZE=$(stat --format='%s' $ATTACHMENT)
 if [ $FILESIZE -gt $MAX_FILESIZE ]
 then
     ATTACHMENT=$BODY.zip
-    zip --quiet $ATTACHMENT $BODY
+    zip --quiet $ATTACHMENT $BODY  # Gmail only knows how to read zip files, not gzipped
     FILESIZE=$(stat --format='%s' $ATTACHMENT)
 fi
 
