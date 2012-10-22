@@ -1,0 +1,15 @@
+.bash
+.bash_logout
+.bashrc
+.forward
+.gitconfig
+.hgrc
+.htoprc
+.profile
+.psqlrc
+.screenrc
+.ssh
+.tmux.conf
+.vim
+.vimrc
+bin
