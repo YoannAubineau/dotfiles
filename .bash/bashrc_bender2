@@ -1,5 +1,0 @@
-# Additional bash configuration for host bender2
-
-export PGHOST="localhost"
-export PGUSER="meilleursagents_dev"
-

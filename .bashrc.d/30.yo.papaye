@@ -1,0 +1,13 @@
+# Additional bash configuration for host papaye
+
+HOSTNAME="papaye"
+
+ALIASES=$(hostname; hostname --alias)
+for ALIAS in $ALIASES; do
+    if [ "_$ALIAS" == "_$HOSTNAME" ]; then
+
+        true
+
+    fi
+done
+

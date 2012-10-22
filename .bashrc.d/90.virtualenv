@@ -1,0 +1,10 @@
+
+# Load virtualenvwrapper
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]
+then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+    source /usr/local/bin/virtualenvwrapper.sh
+    workon py27
+fi
+

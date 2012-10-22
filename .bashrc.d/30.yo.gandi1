@@ -1,0 +1,13 @@
+# Additional bash configuration for gandi-1
+
+HOSTNAME="gandi-1"
+
+ALIASES=$(hostname; hostname --alias)
+for ALIAS in $ALIASES; do
+    if [ "_$ALIAS" == "_$HOSTNAME" ]; then
+
+        true
+
+    fi
+done
+
