@@ -6,6 +6,8 @@ alias la='ls -A'
 alias lla='ls -lhA'
 alias sl='ls'
 
+alias df='df -h'
+
 alias lns='ln -s'
 
 alias susu='sudo su -'
@@ -15,5 +17,5 @@ alias nl='nl -ba'
 alias cgrep='grep -n --color=always'
 alias cless='less -R'
 
-alias diff=colordiff
+alias diff='colordiff'
 
