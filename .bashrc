@@ -107,8 +107,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Load more configuration from .bashrc.d
-for FILEPATH in /home/yoann/.dotfiles/.bashrc.d/*; do
-    echo $FILEPATH
+for FILEPATH in ~/.bashrc.d/*; do
     source $FILEPATH
 done
 

@@ -1,0 +1,6 @@
+# Additional bash configuration for host freesbee
+
+[ $(hostname) == "freesbee.local" ] || return
+
+export PATH=/System/Homebrew/bin:$PATH
+

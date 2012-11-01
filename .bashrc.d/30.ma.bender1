@@ -1,15 +1,4 @@
 # Additional bash configuration for host bender1
 
-HOSTNAME="bender1.typhon.net"
-
-ALIASES=$(hostname; hostname --alias)
-for ALIAS in $ALIASES; do
-    if [ "_$ALIAS" == "_$HOSTNAME" ]; then
-
-        export PGHOST="localhost"
-        export PGUSER="meilleursagents_dev"
-
-    fi
-done
-
+[ $(hostname) == "bender" ] || return
 
