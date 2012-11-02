@@ -1,0 +1,6 @@
+# Bash aliases for Linux
+
+[ $(uname) == 'Linux' ] || return
+
+alias ls='ls --color=auto'
+

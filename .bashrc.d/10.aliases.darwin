@@ -1,0 +1,6 @@
+# Bash aliases for MacOSX
+
+[ $(uname) == 'Darwin' ] || return
+
+alias ls='ls -G'
+
