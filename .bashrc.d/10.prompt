@@ -2,7 +2,3 @@
 
 PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32m\]\u \[\033[0;32m\]\H \[\033[0m\]\w \[\033[1;32m\]\n>\[\033[0m\]'
 
-# Prompt always starts at first column
-PS1="\[\033[G\]$PS1"
-
-
