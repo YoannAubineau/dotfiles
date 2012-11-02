@@ -6,10 +6,6 @@ then
     export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
     source /usr/local/bin/virtualenvwrapper.sh
 
-    if [ $(hostname) == "freesbee.local" ]; then
-        workon py273
-    else
-        workon py27
-    fi
+    workon py
 fi
 
