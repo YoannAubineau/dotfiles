@@ -2,11 +2,10 @@
 # Install cPython interpreter from source
 # usage: install_python.sh <version>
 
-set -e
 set -x
+set -e
 
 VERSION=$1
-
 
 mkdir -p /usr/src/python-$VERSION
 cd /usr/src/python-$VERSION
@@ -20,46 +19,63 @@ command -v apt-get && sudo apt-get install $DEPENDENCIES
 
 # Get Python sources
 
-FILENAME=Python-$VERSION.tar.bz2
+URL="http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.bz2"
+
+FILENAME=$(basename $URL)
 if [ ! -f $FILENAME ]
 then
-    wget http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.bz2
-    #echo 'aa27bc25725137ba155910bd8e5ddc4f  Python-$VERSION.tar.bz2' | md5sum --check -
+    wget $URL
 fi
 
-DIRNAME=Python-$VERSION
+DIRNAME=${FILENAME%.tar.*}
 if [ ! -d $DIRNAME ]
 then
-    tar xvjf Python-$VERSION.tar.bz2
+    tar xvjf $FILENAME
 fi
 
 
 # Compile and install Python interpreter
 
-cd $DIRNAME
-./configure --prefix=/opt/python-$VERSION/
+cd "$DIRNAME"
+
+[ -d '/System' ] && PREFIX='/System' || PREFIX='/opt'
+TARGETDIR="$PREFIX/$(echo $DIRNAME | tr '[A-Z]' '[a-z]')"
+./configure --prefix="$TARGETDIR"
+make
 sudo make install
+
 cd ..
 
-PYTHON=/opt/python-$VERSION/bin/python${VERSION::3}
+PYTHON=$TARGETDIR/bin/python${VERSION::3}
 
 
 # Bootstrap distribute package (required by pip)
 
-wget --no-check-certificate --no-clobber http://python-distribute.org/distribute_setup.py
-sudo $PYTHON distribute_setup.py
+URL="http://python-distribute.org/distribute_setup.py"
+wget --no-check-certificate --no-clobber $URL
+sudo $PYTHON $(basename $URL)
 
 
 # Install pip package installer
 
-wget --no-check-certificate --no-clobber https://github.com/pypa/pip/raw/master/contrib/get-pip.py
-sudo $PYTHON get-pip.py
+URL="https://github.com/pypa/pip/raw/master/contrib/get-pip.py"
+wget --no-check-certificate --no-clobber $URL
+sudo $PYTHON $(basename $URL)
+
+PIP="$TARGETDIR/bin/pip"
 
 
 # Install virtualenv
 
-sudo /opt/python-$VERSION/bin/pip install virtualenv
+sudo $PIP install virtualenv
 
+
+# Install system-wide distribute
+
+PYTHON="/usr/bin/python"
+URL="http://python-distribute.org/distribute_setup.py"
+wget --no-check-certificate --no-clobber $URL
+sudo $PYTHON $(basename $URL)
 
 # Install system-wide virtualenvwrapper
 
