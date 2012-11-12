@@ -49,6 +49,9 @@ cd "$DIRNAME"
 
 [ -d '/System' ] && PREFIX='/System' || PREFIX='/opt'
 TARGETDIR="$PREFIX/$(echo $DIRNAME | tr '[A-Z]' '[a-z]')"
+
+export LDFLAGS="-L/usr/lib/$(dpkg-architecture -qDEB_HOST_MULTIARCH)"
+
 ./configure --prefix="$TARGETDIR"
 make
 sudo make install
