@@ -13,7 +13,16 @@ cd /usr/src/python-$VERSION
 
 # Install prerequisite libraries
 
-DEPENDENCIES="make libreadline6-dev libsqlite3-dev libxslt1-dev libxml2-dev zlib1g-dev libbz2-dev"
+DEPENDENCIES="
+    dpkg-dev
+    make
+    libreadline6-dev
+    libsqlite3-dev
+    libxslt1-dev
+    libxml2-dev
+    zlib1g-dev
+    libbz2-dev
+"
 command -v apt-get && sudo apt-get install $DEPENDENCIES
 
 
