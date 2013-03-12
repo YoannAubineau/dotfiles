@@ -1,0 +1,4 @@
+# Set prefered editor
+
+export EDITOR='vim'
+
