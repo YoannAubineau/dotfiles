@@ -74,7 +74,8 @@ URL="https://github.com/pypa/pip/raw/master/contrib/get-pip.py"
 wget --no-check-certificate --no-clobber $URL
 sudo $PYTHON $(basename $URL)
 
-chmod 666 $TARGETDIR/lib/python${VERSION::3}/site-packages/pip-*/top_level.txt
+chmod o+r $TARGETDIR/lib/python${VERSION::3}/site-packages/pip-*/top_level.txt
+chmod o+r $TARGETDIR/lib/python${VERSION::3}/site-packages/pip-*/entry_points.txt
 
 PIP="$TARGETDIR/bin/pip"
 
