@@ -49,7 +49,7 @@ for line in lines:
                 continue
         try: output = subprocess.check_output(cmd, env=env, shell=True, stderr=subprocess.STDOUT)
         except subprocess.CalledProcessError as e:
-            if output:
+            if 'output' in locals():
                 print(output)
             print('returncode: {}'.format(e.returncode))
         else:
