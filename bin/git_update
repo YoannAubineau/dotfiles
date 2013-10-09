@@ -3,25 +3,15 @@
 LINE='------------------------------'
 
 PATHS=$*
-if [ $# -eq 0 ]
-then
-	PATHS=.
-fi
+[ $# -eq 0 ] && PATHS=.
 
 for path in $PATHS
 do
-	# ignore non-directories
-	if [ ! -d $path ]
-	then
-		echo "not a repository: $path" >> /dev/stderr
-		continue
-	fi
+	# ignore non-git directories
+	[ ! -d $path/.git ] && continue
 
-	# trace a line between repositories
-	if [ $# -gt 1 ]
-	then
-		echo  "$LINE $path"
-	fi
+	# draw a line in between repositories
+	[ $# -gt 1 ] && echo  "$LINE $path"
 
 	cd $path
 	set -o verbose
