@@ -16,7 +16,10 @@ do
 	cd $path
 	set -o verbose
 	git remote update
-	git remote prune origin
+	for REMOTE in $(git remote)
+	do
+		git remote prune $REMOTE
+	done
 	git branch -a
 	git status
 	git stash list
