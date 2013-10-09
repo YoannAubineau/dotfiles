@@ -2,8 +2,10 @@
 # Create Python virtualenv
 # usage: make_virtualenv.sh <version> <virtualenv_name>
 
-set -e
-set -x
+set -e -x
+
+VERSION=$1
+VIRTUALENV_NAME=$2
 
 
 # Create virtualenvs root directory
@@ -18,12 +20,9 @@ mkdir -p $WORKON_HOME
 
 # Create new virtualenv with specified name and Python version
 
-VERSION=$1
 [ -d "/System" ] && PREFIX="/System" || PREFIX="/opt"
 PYTHON="$PREFIX/python-$VERSION/bin/python${VERSION::3}"
 VIRTUALENV="$PREFIX/python-$VERSION/bin/virtualenv"
-
-VIRTUALENV_NAME=$2
 
 $VIRTUALENV --python=$PYTHON --no-site-packages $WORKON_HOME/$VIRTUALENV_NAME
 
