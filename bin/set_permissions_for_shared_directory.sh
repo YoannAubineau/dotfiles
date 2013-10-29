@@ -6,11 +6,11 @@ set -x -e
 GROUP=$1
 TARGET=$2
 
-# Fix permissions
+# Set and insure group ownership
 chgrp -R $GROUP $TARGET
-chmod -R ug=rwX,o=X $TARGET
 find $TARGET -type d -exec chmod g+s {} \;
 
-# Force more permissive umask
-setfacl -Rm d:g::rwx,d:o::--x $TARGET
+# Set and insure permissions
+chmod -R ug=rwX,o=X $TARGET
+setfacl -Rm 'd:g::rwx,d:o::--x' $TARGET
 
