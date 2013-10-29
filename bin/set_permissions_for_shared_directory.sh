@@ -12,5 +12,5 @@ chmod -R ug=rwX,o=X $TARGET
 find $TARGET -type d -exec chmod g+s {} \;
 
 # Force more permissive umask
-setfacl -Rm d:g::rwx,d:o::--- $TARGET
+setfacl -Rm d:g::rwx,d:o::--x $TARGET
 
