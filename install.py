@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import absolute_import, division, print_function, unicode_literals
+
 import datetime
 import os
 
@@ -16,7 +18,7 @@ def main():
             os.unlink(source)
         if os.path.exists(source):
             os.rename(source, '%s.%s' % (source, timestamp))
-        print '%s -> %s' % (source, target)
+        print('{} -> {}'.format(source, target))
         os.symlink(target, source)
 
 
