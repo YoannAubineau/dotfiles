@@ -22,3 +22,5 @@ alias diff='colordiff'
 alias NOW='date +%Y%m%d_%H%M%S'
 alias TODAY='date +%Y%m%d'
 
+alias sum='python -c "import sys; print sum(int(l) for l in sys.stdin)"'
+
