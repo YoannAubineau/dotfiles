@@ -28,7 +28,7 @@ command -v apt-get && sudo apt-get install $DEPENDENCIES
 
 # Get Python sources
 
-URL="http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tar.bz2"
+URL="http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tgz"
 
 FILENAME=$(basename $URL)
 if [ ! -f $FILENAME ]
@@ -36,10 +36,10 @@ then
     wget $URL
 fi
 
-DIRNAME=${FILENAME%.tar.*}
+DIRNAME=${FILENAME%.tgz}
 if [ ! -d $DIRNAME ]
 then
-    tar xvjf $FILENAME
+    tar xvzf $FILENAME
 fi
 
 
