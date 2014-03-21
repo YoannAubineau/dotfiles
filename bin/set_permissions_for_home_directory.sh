@@ -8,7 +8,12 @@ cd $HOME
 HOME=$(pwd)
 cd -
 
+# Infer username or default to root
 USERNAME=$(basename ${HOME%/})
+if [ -n $(grep $USERNAME /etc/passwd) ]
+then
+    USERNAME="root"
+fi
 
 chown -R $USERNAME $HOME
 chmod -R u=rwX,g=r-X,o= $HOME
