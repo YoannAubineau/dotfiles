@@ -15,7 +15,9 @@ def main():
     timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     configdir = os.path.abspath(os.path.dirname(__file__))
     homedir = os.path.expanduser('~')
-    for line in open(os.path.join(configdir, 'MANIFEST')):
+
+    lines = open(os.path.join(configdir, 'MANIFEST'))
+    for line in lines:
         chunks = line.split('#', 1)
         if len(chunks) == 1:
             filename, comment = line, ''
