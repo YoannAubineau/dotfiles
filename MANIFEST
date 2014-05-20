@@ -2,7 +2,7 @@
 .bashrc.d
 .bash_logout
 .bashrc
-.forward
+.forward  #HARDLINK
 .gitconfig
 .hgrc
 .profile

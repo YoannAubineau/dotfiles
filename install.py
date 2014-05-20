@@ -11,15 +11,24 @@ def main():
     configdir = os.path.abspath(os.path.dirname(__file__))
     homedir = os.path.expanduser('~')
     for line in open(os.path.join(configdir, 'MANIFEST')):
-        filename = line.strip()
+        chunks = line.split('#', 1)
+        if len(chunks) == 1:
+            filename, comment = line, ''
+        else:
+            filename, comment = chunks
+        filename = filename.strip()
+
         source = os.path.join(homedir, filename)
-        target = os.path.join(os.path.basename(configdir), filename)
+        target = os.path.join(configdir, filename)
         if os.path.islink(source):
             os.unlink(source)
         if os.path.exists(source):
             os.rename(source, '%s.%s' % (source, timestamp))
         print('{0} -> {1}'.format(source, target))
-        os.symlink(target, source)
+        if 'HARDLINK' in comment:
+            os.link(target, source)
+        else:
+            os.symlink(target, source)
 
 
 if __name__ == '__main__':
