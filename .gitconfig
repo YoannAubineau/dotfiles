@@ -1,15 +1,16 @@
 [user]
-    name = Yoann Aubineau
-    email = yoann@meilleursagents.com
+	name = Yoann Aubineau
+	email = y.aubineau@criteo.com
 
 [color]
-    ui = true
+	ui = true
 
 [merge]
-    tool = vimdiff3
+	tool = vimdiff3
 
 [mergetool "vimdiff3"]
-    cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 
 [push]
 	default = simple
+
