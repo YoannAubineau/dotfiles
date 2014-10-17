@@ -1,4 +1,0 @@
-# Additional bash configuration for host papaye
-
-[ $(hostname) == "papaye" ] || return
-

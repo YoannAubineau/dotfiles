@@ -1,4 +1,0 @@
-# Additional bash configuration for gandi-1
-
-[ $(hostname) == "gandi-1" ] || return
-

@@ -1,7 +1,0 @@
-# Additional bash configuration for host dev
-
-[ $(hostname) == "dev.meilleursagents" ] || return
-
-export PGHOST="localhost"
-export PGUSER="meilleursagents_dev"
-
