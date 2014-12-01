@@ -10,8 +10,8 @@ syntax on
 " Make Vim use lighter colors on dark background
 set background=dark
 
-" Automatically indent based on file type
-filetype indent on
+" Automatically indent based on file type and load related plugin if any
+filetype plugin indent on
 
 " Keep indentation level from previous line
 set autoindent
