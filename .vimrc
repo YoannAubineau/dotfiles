@@ -40,8 +40,8 @@ set incsearch
 set scrolloff=1
 
 " Underline current line in active window
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+"autocmd WinEnter * setlocal cursorline
+"autocmd WinLeave * setlocal nocursorline
 
 " Enable mouse use
 set mouse=a
