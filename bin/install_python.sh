@@ -28,8 +28,8 @@ command -v apt-get && sudo apt-get install $DEPENDENCIES
 
 # Get Python sources
 
-mkdir -p /usr/src/python-$VERSION
-cd /usr/src/python-$VERSION
+mkdir -p /usr/local/src/python-$VERSION
+cd /usr/local/src/python-$VERSION
 
 URL="http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tgz"
 
