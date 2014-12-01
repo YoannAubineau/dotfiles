@@ -16,6 +16,11 @@ filetype plugin indent on
 " Keep indentation level from previous line
 set autoindent
 
+" Set default indentation to 4-spaces
+set shiftwidth=4
+set expandtab
+set softtabstop=4
+
 " Enable line numbers
 set nu
 
