@@ -1,27 +1,33 @@
 #!/usr/bin/env bash
+set -e
 
 LINE='------------------------------'
 
-PATHS=$*
-[ $# -eq 0 ] && PATHS=.
+DIRPATHS=($*)
+if [[ ${#DIRPATHS[@]} -eq 0 ]] && [[ -e .git_update ]]; then
+    DIRPATHS=($(cat .git_update))
+fi
+if [[ ${#DIRPATHS[@]} -eq 0 ]]; then
+    DIRPATHS=('.')
+fi
 
-for path in $PATHS
-do
-	# ignore non-git directories
-	[ ! -d $path/.git ] && continue
+for DIRPATH in ${DIRPATHS[@]}; do
 
-	# draw a line in between repositories
-	[ $# -gt 1 ] && echo  "$LINE $path"
+    # ignore non-git directories
+    [ ! -d $path/.git ] && continue
 
-	cd $path
-	git remote update
-	for REMOTE in $(git remote)
-	do
-		git remote prune $REMOTE
-	done
-	git branch -a
-	git status
-	git stash list
-	cd -
+    # draw a line in between repositories
+    [ ${#DIRPATHS[@]} -gt 1 ] && echo  "${LINE} ${DIRPATH}"
+
+    cd ${DIRPATH}
+    git remote update
+    for REMOTE in $(git remote); do
+        git remote prune ${REMOTE}
+    done
+    git branch -a
+    git status
+    git stash list
+    cd -
+
 done
 
