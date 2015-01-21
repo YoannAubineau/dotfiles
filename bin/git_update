@@ -14,9 +14,9 @@ fi
 for DIRPATH in ${DIRPATHS[@]}; do
 
     # ignore non-git directories
-    [ ! -d $path/.git ] && continue
+    [ ! -d $DIRPATH/.git ] && continue
 
-    # draw a line in between repositories
+    # draw a line between repositories
     [ ${#DIRPATHS[@]} -gt 1 ] && echo  "${LINE} ${DIRPATH}"
 
     cd ${DIRPATH}
