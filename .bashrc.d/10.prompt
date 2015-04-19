@@ -1,4 +1,9 @@
 # Define custom colored prompt
 
-PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32m\]\u \[\033[0;32m\]\H \[\033[0m\]\w \[\033[1;32m\]\n>\[\033[0m\]'
+
+if [[ "$USER" == "root" ]]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;31m\]\u \[\033[0;31m\]\H \[\033[0m\]\w \[\033[1;31m\]\n>\[\033[0m\]'
+else
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32m\]\u \[\033[0;32m\]\H \[\033[0m\]\w \[\033[1;32m\]\n>\[\033[0m\]'
+fi
 
