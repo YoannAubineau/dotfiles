@@ -6,7 +6,7 @@ alias la='ls -A'
 alias lla='ls -lhA'
 alias sl='ls'
 
-alias df='df -h'
+alias df='df -ah'
 
 alias lns='ln -s'
 
