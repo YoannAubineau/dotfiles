@@ -91,6 +91,10 @@ if [[ $VERSION_MAJOR == "2" ]]; then
 fi
 
 
+# Install virtualenvwrapper
+
+sudo $PIP install virtualenvwrapper
+
 # Install system-wide virtualenvwrapper
 
 command -v apt-get && sudo apt-get install python-setuptools
