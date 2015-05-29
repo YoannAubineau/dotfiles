@@ -36,6 +36,9 @@ set hlsearch
 " Do incremental search
 set incsearch
 
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 " Force 1 line of context above or below the cursor
 set scrolloff=1
 
