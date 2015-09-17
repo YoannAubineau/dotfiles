@@ -1,4 +1,4 @@
 # Load ssh-pageant on Cygwin
-if [[ "$(uname -o)" == "Cygwin" ]]; then
+if [[ "$(uname -o)" == "Cygwin" && -e /usr/bin/ssh-pageant ]]; then
     eval $(/usr/bin/ssh-pageant -r -a "/tmp/.ssh-pageant-y.aubineau") >/dev/null
 fi
