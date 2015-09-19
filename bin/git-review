@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+LOCAL_BRANCH=$(git symbolic-ref HEAD)
+case $LOCAL_BRANCH in
+    refs/heads/*)
+        LOCAL_BRANCH=$(basename $LOCAL_BRANCH)
+        ;;
+    *)
+        echo "I can't figure out which branch you are on."
+        exit 1
+        ;;
+esac
+
+REMOTE=$(git config --get "branch.$LOCAL_BRANCH.remote")
+REMOTE_BRANCH=$(git config --get "branch.$LOCAL_BRANCH.merge")
+if [[ -z $REMOTE || -z $REMOTE_BRANCH ]]
+then
+    echo "There is no tracking information for the current branch."
+    echo "If you wish to set tracking information for this branch you can do so with:"
+    echo ""
+    echo "    git branch --set-upstream $LOCAL_BRANCH <remote>/<branch>"
+    echo ""
+    exit 1
+fi
+REMOTE_BRANCH=$(basename $REMOTE_BRANCH)
+
+REVIEWERS=$(git config --get "branch.$LOCAL_BRANCH.reviewers")
+if [ -z $REVIEWERS ]
+then
+    REVIEWERS=$(git config --get "remote.$REMOTE.reviewers")
+fi
+REVIEWERS="r=${REVIEWERS/,/,r=}"
+
+set -x
+git push $REMOTE HEAD:refs/publish/$REMOTE_BRANCH%$REVIEWERS
+
