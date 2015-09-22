@@ -29,7 +29,7 @@ if [ -z $REVIEWERS ]
 then
     REVIEWERS=$(git config --get "remote.$REMOTE.reviewers")
 fi
-REVIEWERS="r=${REVIEWERS/,/,r=}"
+REVIEWERS="r=$(echo ${REVIEWERS} | sed -s 's/,/,r=/g')"
 
 set -x
 git push $REMOTE HEAD:refs/publish/$REMOTE_BRANCH%$REVIEWERS
