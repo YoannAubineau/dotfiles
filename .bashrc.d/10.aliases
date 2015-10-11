@@ -24,3 +24,4 @@ alias TODAY='date +%Y%m%d'
 
 alias sum='python -c "import sys; print sum(int(l) for l in sys.stdin)"'
 
+alias watch='watch --color'
