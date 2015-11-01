@@ -62,7 +62,7 @@ export LDFLAGS="-L/usr/lib/$(dpkg-architecture -qDEB_HOST_MULTIARCH)"
 
 ./configure --prefix=$TARGETDIR
 
-CPU_COUNT=$(grep -c ^processor /proc/cpuinfo)
+CPU_COUNT=$(python -c 'import multiprocessing as mp; print(mp.cpu_count())')
 make -j$CPU_COUNT
 
 sudo make install
@@ -82,6 +82,9 @@ sudo chmod o+r $TARGETDIR/lib/python$VERSION_MINOR/site-packages/pip-*/top_level
 sudo chmod o+r $TARGETDIR/lib/python$VERSION_MINOR/site-packages/pip-*/entry_points.txt
 
 PIP="$TARGETDIR/bin/pip"
+if [[ $VERSION_MAJOR == "3" ]]; then
+    PIP="$TARGETDIR/bin/pip3"
+fi
 
 
 # Install virtualenv
