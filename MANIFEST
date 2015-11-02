@@ -5,6 +5,7 @@
 .forward  #HARDLINK
 .gitconfig
 .hgrc
+.multitailrc
 .profile
 .psqlrc
 .screenrc
