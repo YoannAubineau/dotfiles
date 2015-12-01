@@ -2,15 +2,15 @@
 
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import argparse
+import optparse
 import datetime
 import os
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-n', '--dry-run', action='store_true')
-    args = parser.parse_args()
+    parser = optparse.OptionParser()
+    parser.add_option('-n', '--dry-run', action='store_true')
+    (options, args) = parser.parse_args()
 
     timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     configdir = os.path.abspath(os.path.dirname(__file__))
@@ -29,7 +29,7 @@ def main():
         target = os.path.join(configdir, filename)
 
         print('{0} -> {1}'.format(source, target))
-        if args.dry_run:
+        if options.dry_run:
             continue
 
         if os.path.islink(source):
