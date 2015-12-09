@@ -25,12 +25,9 @@ fi
 REMOTE_BRANCH=$(basename $REMOTE_BRANCH)
 
 REVIEWERS=$(git config --get "branch.$LOCAL_BRANCH.reviewers")
-if [ -z $REVIEWERS ]
-then
-    REVIEWERS=$(git config --get "remote.$REMOTE.reviewers")
-fi
-REVIEWERS="r=$(echo ${REVIEWERS} | sed -s 's/,/,r=/g')"
+test -z "${REVIEWERS// }" && REVIEWERS=$(git config --get "remote.$REMOTE.reviewers")
+test -z "${REVIEWERS// }" || REVIEWERS="%r=$(echo ${REVIEWERS} | sed -s 's/,/,r=/g')"
 
 set -x
-git push $REMOTE HEAD:refs/publish/$REMOTE_BRANCH%$REVIEWERS
+git push ${REMOTE} HEAD:refs/publish/${REMOTE_BRANCH}${REVIEWERS}
 
