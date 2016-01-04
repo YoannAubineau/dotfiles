@@ -16,7 +16,7 @@
 
 [alias]
 	b = branch -av
-	l = log --graph --pretty=format:'%Cred%h%Creset - %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset'
+	l = log --all --graph --pretty=format:'%Cred%h%Creset - %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset'
 	s = status
 	d = diff
 	ds = diff --staged
