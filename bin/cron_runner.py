@@ -42,7 +42,10 @@ for line in lines:
             while True:
                 msg = 'run command? [Y/n] '
                 sys.stderr.write(msg)
-                key = raw_input()
+                if sys.version_info.major >= 3:
+                    key = input()
+                else:
+                    key = raw_input()
                 if key in ('', 'y', 'Y', 'n', 'N'):
                     break
             if key in ('n', 'N'):
