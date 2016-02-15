@@ -2,9 +2,10 @@
 
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import optparse
 import datetime
+import optparse
 import os
+import shutil
 
 
 def main():
@@ -37,7 +38,9 @@ def main():
         if os.path.exists(source):
             os.rename(source, '%s.%s' % (source, timestamp))
 
-        if 'HARDLINK' in comment:
+        if 'COPY' in comment:
+            shutil.copytree(target, source)
+        elif 'HARDLINK' in comment:
             os.link(target, source)
         else:
             os.symlink(target, source)

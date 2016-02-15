@@ -3,13 +3,13 @@
 .bash_logout
 .bashrc
 .forward  #HARDLINK
-.gitconfig
+.gitconfig  #HARDLINK
 .hgrc
 .multitailrc
 .profile
 .psqlrc
 .screenrc
-.ssh
+.ssh  #COPY
 .tmux.conf
 .vim
 .vimrc
