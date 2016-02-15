@@ -28,6 +28,12 @@ REVIEWERS=$(git config --get "branch.$LOCAL_BRANCH.reviewers")
 test -z "${REVIEWERS// }" && REVIEWERS=$(git config --get "remote.$REMOTE.reviewers")
 test -z "${REVIEWERS// }" || REVIEWERS="%r=$(echo ${REVIEWERS} | sed -s 's/,/,r=/g')"
 
-set -x
-git push ${REMOTE} HEAD:refs/publish/${REMOTE_BRANCH}${REVIEWERS}
+if [[ "$1" == "--draft" ]]
+then
+    set -x
+    git push ${REMOTE} HEAD:refs/drafts/${REMOTE_BRANCH}
+else
+    set -x
+    git push ${REMOTE} HEAD:refs/publish/${REMOTE_BRANCH}${REVIEWERS}
+fi
 
