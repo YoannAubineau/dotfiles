@@ -15,6 +15,8 @@ alias susu='sudo su -'
 alias nl='nl -ba'
 
 alias cgrep='grep -n --color=always'
+
+alias less='less -S'
 alias cless='less -R'
 
 alias diff='colordiff'
