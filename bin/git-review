@@ -18,7 +18,7 @@ then
     echo "There is no tracking information for the current branch."
     echo "If you wish to set tracking information for this branch you can do so with:"
     echo ""
-    echo "    git branch --set-upstream-to $LOCAL_BRANCH <remote>/<branch>"
+    echo "    git branch --set-upstream-to <remote>/<branch>"
     echo ""
     exit 1
 fi
