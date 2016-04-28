@@ -74,7 +74,9 @@ PYTHON="$TARGETDIR/bin/python$VERSION_MINOR"
 
 # Install pip package installer
 
-URL="https://github.com/pypa/pip/raw/master/contrib/get-pip.py"
+URL="https://bootstrap.pypa.io/get-pip.py"
+FILENAME=$(basename $URL)
+rm -f $FILENAME
 wget --no-check-certificate --no-clobber $URL
 sudo $PYTHON $(basename $URL)
 
