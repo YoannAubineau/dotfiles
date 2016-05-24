@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ $# -eq 0 ]]; then
-    TARGETS=$(grep -e '#sync-dotfiles' .ssh/config | sed 's/\s+/\s/g' | cut -d' ' -f2)
+    TARGETS=$(grep -e '#sync-dotfiles' ~/.ssh/config | sed 's/\s+/\s/g' | cut -d' ' -f2)
 else
     TARGETS="$@"
 fi
