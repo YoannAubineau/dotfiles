@@ -14,7 +14,8 @@ PASSWORD_ENCODING="aes128-cts-hmac-sha1-96"
 
 # Install ktutil if missing
 if [ -z $(which ktutil) ]; then
-    sudo apt-get install krb5-user
+    [ $(uname -o) == "GNU/Linux" ] && sudo apt-get install krb5-user
+    [ $(uname -o) == "Cygwin" ] && apt-cyg install krb5-workstation
 fi
 
 # Get Kerberos password for given principal
