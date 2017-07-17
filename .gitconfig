@@ -1,24 +1,24 @@
 [user]
-	name = Yoann Aubineau
-	email = yoann.aubineau@gmail.com
+    name = Yoann Aubineau
+    email = yoann.aubineau@gmail.com
 
 [color]
-	ui = true
+    ui = true
 
 [merge]
-	tool = vimdiff3
+    tool = vimdiff3
 
 [mergetool "vimdiff3"]
-	cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+    cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 
 [push]
-	default = simple
+    default = simple
 
 [alias]
-	b = branch -av
-	ll = log --all --graph --pretty=format:'%Cred%h%Creset - %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset'
-	l  = log --all --graph --pretty=format:'%Cred%h%Creset - %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset' --max-count=10
-	s = status
-	d = diff
-	ds = diff --staged
-	co = checkout
+    b = branch -av
+    ll = log --all --graph --pretty=format:'%Cred%h%Creset - %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset'
+    l  = log --all --graph --pretty=format:'%Cred%h%Creset - %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset' --max-count=10
+    s = status
+    d = diff
+    ds = diff --staged
+    co = checkout
