@@ -16,8 +16,8 @@
 
 [alias]
     b = branch -av
-    ll = log --all --graph --pretty=format:'%Cred%h%Creset - %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset'
-    l  = log --all --graph --pretty=format:'%Cred%h%Creset - %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset' --max-count=20
+    ll = log --branches --remotes --tags --graph --pretty=format:'%Cred%h%Creset - %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset'
+    l  = log --branches --remotes --tags --graph --pretty=format:'%Cred%h%Creset - %s %C(bold blue)<%an>%Creset %Cgreen(%cr)%C(yellow)%d%Creset' --max-count=20
     s = status
     d = diff
     ds = diff --staged
