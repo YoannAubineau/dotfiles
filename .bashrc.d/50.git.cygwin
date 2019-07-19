@@ -1,4 +1,4 @@
-[[ "$(uname -o)" == "Cygwin" ]] || return
+[[ "$(uname)" == "Cygwin" ]] || return
 
 export GIT_SSH=$(which ssh)
 
