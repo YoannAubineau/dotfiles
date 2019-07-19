@@ -1,6 +1,7 @@
 .ackrc
 .bashrc.d
 .bash_logout
+.bash_profile
 .bashrc
 .forward  #HARDLINK
 .gitconfig  #HARDLINK
